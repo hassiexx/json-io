@@ -1,4 +1,4 @@
-JSON I/O
+JSON I/O [![CircleCI](https://circleci.com/gh/hassieswift621/json-io.svg?style=svg)](https://circleci.com/gh/hassieswift621/json-io)
 ========
 
 JSON I/O is a Java library providing common JSON I/O utilities to preserve UTF-8 encoding.
