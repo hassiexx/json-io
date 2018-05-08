@@ -1,4 +1,4 @@
-JSON I/O [![CircleCI](https://circleci.com/gh/hassieswift621/json-io.svg?style=svg)](https://circleci.com/gh/hassieswift621/json-io)  [ ![Download](https://api.bintray.com/packages/hassieswift621/maven/json-io/images/download.svg) ](https://bintray.com/hassieswift621/maven/json-io/_latestVersion)
+JSON I/O [![CircleCI](https://circleci.com/gh/hassieswift621/json-io.svg?style=svg)](https://circleci.com/gh/hassieswift621/json-io)  [ ![Download](https://api.bintray.com/packages/hassieswift621/maven/json-io/images/download.svg) ](https://bintray.com/hassieswift621/maven/json-io/_latestVersion) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b77d753820154f4487659ab990e5926f)](https://www.codacy.com/app/hassieswift621/json-io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hassieswift621/json-io&amp;utm_campaign=Badge_Grade)
 ========
 
 JSON I/O is a Java library providing common JSON I/O utilities to preserve UTF-8 encoding.
