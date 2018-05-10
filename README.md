@@ -30,6 +30,54 @@ implementation 'uk.co.hassieswift621.libraries:json-io:1.0.0
 </dependency>
 ```
 
+Tutorial
+--------
+**Converting an input stream to UTF-8 JSON**
+```java
+try {
+  JSONObject json = JsonIO.toJSON(inputStream);
+} catch (IOException e) {}
+```
+
+**Converting a file to UTF-8 JSON**
+```java
+try {
+  JSONObject json = JsonIO.toJSON(new File("sample_json.json"));
+} catch (IOException e) {}
+```
+
+**Converting a string to UTF-8 JSON**
+```java
+try {
+  JSONObject json = JsonIO.toJSON("{"text": "Some text"}");
+} catch (IOException e) {}
+```
+
+**Converting JSON to file**
+```java
+JSONObject json = some JSON.
+try {
+  JsonIO.toFile(json, new File("output.json"));
+} catch (IOException e) {}
+```
+
+**Converting JSON to file (append to a file)**
+```java
+JSONObject json = some JSON;
+try {
+  JsonIO.toFile(json, new File("output.json"), true);
+}
+catch (IOException e) {}
+```
+
+**Converting JSON to a UTF-8
+```java
+JSONObject json = some JSON;
+try {
+  String jsonString = JsonIO.toString(json);
+} catch (IOException e) {}
+```
+
 License
 -------
 Copyright &copy;2018 HassieSwift621.
