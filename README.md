@@ -55,7 +55,7 @@ try {
 
 **Converting JSON to file**
 ```java
-JSONObject json = some JSON.
+JSONObject json = some JSON;
 try {
   JsonIO.toFile(json, new File("output.json"));
 } catch (IOException e) {}
@@ -70,7 +70,7 @@ try {
 catch (IOException e) {}
 ```
 
-**Converting JSON to a UTF-8
+**Converting JSON to a UTF-8 string**
 ```java
 JSONObject json = some JSON;
 try {
