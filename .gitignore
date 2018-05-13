@@ -1,10 +1,8 @@
-# Java build files
-**/build/
-**/out/
-
+# --------
 # Gradle
+# --------
 .gradle
-/build/
+build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -15,6 +13,14 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
+# --------
 # IntelliJ
+# --------
 *.iml
 .idea/
+
+# --------
+# Java
+# --------
+**/build/
+**/out/
