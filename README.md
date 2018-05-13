@@ -13,11 +13,13 @@ Simply supply the following command line parameter:```-Dfile.encoding=UTF8```
 
 Dependencies
 ------------
-The library is available on JCenter. The current version is 1.0.0
+The library is available on JCenter. The latest version is 1.1.0
+
+Replace ```{LATEST_VERSION}``` with the latest version.
 
 **Gradle Setup**
 ```gradle
-implementation 'uk.co.hassieswift621.libraries:json-io:1.0.0
+implementation 'uk.co.hassieswift621.libraries:json-io:{LATEST_VERSION}
 ```
 
 **Maven Setup**
@@ -25,7 +27,7 @@ implementation 'uk.co.hassieswift621.libraries:json-io:1.0.0
 <dependency>
   <groupId>uk.co.hassieswift621.libraries</groupId>
   <artifactId>json-io</artifactId>
-  <version>1.0.0</version>
+  <version>{LATEST_VERSION}</version>
   <type>pom</type>
 </dependency>
 ```
