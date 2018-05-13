@@ -15,7 +15,7 @@
  */
 
 group = 'uk.co.hassieswift621.libraries.jsonio'
-version = 'unspecified'
+version = '1.1.0'
 
 apply plugin: 'java'
 

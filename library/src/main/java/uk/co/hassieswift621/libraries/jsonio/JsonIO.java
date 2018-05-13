@@ -27,54 +27,48 @@ public class JsonIO {
 
     /**
      * Converts an input stream to an UTF-8 encoded JSON object.
+     *
      * @param inputStream The input stream.
      * @return A UTF-8 encoded JSON object.
      * @throws IOException If the conversion failed.
      */
     public static JSONObject toJSON(InputStream inputStream) throws IOException {
 
-        // Create output stream.
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
+        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
 
-        // Read input stream.
-        int length = inputStream.read(buffer);
-        while (length != -1) {
-            outputStream.write(buffer, 0, length);
-            length = inputStream.read(buffer);
+            // Create buffer.
+            byte[] buffer = new byte[1024];
+
+            // Convert input stream to byte array output stream.
+            int length = inputStream.read(buffer);
+            while (length != -1) {
+                outputStream.write(buffer, 0, length);
+                length = inputStream.read(buffer);
+            }
+
+            // Convert output stream to JSON.
+            return new JSONObject(outputStream.toString("UTF-8"));
         }
-
-        // Convert output stream to JSON.
-        JSONObject json = new JSONObject(outputStream.toString("UTF-8"));
-
-        // Close the output stream.
-        outputStream.close();
-
-        return json;
     }
 
     /**
      * Converts a file to a UTF-8 encoded JSON object.
+     *
      * @param file The file to convert.
      * @return A UTF-8 encoded JSON object.
      * @throws IOException If the conversion failed.
      */
     public static JSONObject toJSON(File file) throws IOException {
 
-        // Create file input stream.
-        FileInputStream fileInputStream = new FileInputStream(file);
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
 
-        // Convert input stream to JSON.
-        JSONObject json = toJSON(fileInputStream);
-
-        // Close the input stream.
-        fileInputStream.close();
-
-        return json;
+            return toJSON(fileInputStream);
+        }
     }
 
     /**
      * Converts a JSON string to a UTF-8 encoded JSON object.
+     *
      * @param string The JSON as a string.
      * @return A UTF-8 encoded JSON object.
      * @throws IOException If the conversion failed.
@@ -84,21 +78,19 @@ public class JsonIO {
         // Get raw JSON.
         byte[] rawJSON = string.getBytes();
 
-        // Convert bytes to output stream.
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(rawJSON);
+        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
 
-        // Convert output stream to JSON.
-        JSONObject json = new JSONObject(outputStream.toString("UTF-8"));
+            // Convert bytes to output stream.
+            outputStream.write(rawJSON);
 
-        // Close the output stream.
-        outputStream.close();
-
-        return json;
+            // Convert output stream to JSON.
+            return new JSONObject(outputStream.toString("UTF-8"));
+        }
     }
 
     /**
      * Outputs a JSON object to a UTF-8 encoded file.
+     *
      * @param json The JSON object to output.
      * @param file The file to create.
      * @throws IOException If the output failed.
@@ -110,8 +102,9 @@ public class JsonIO {
 
     /**
      * Outputs a JSON object to a UTF-8 encoded file.
-     * @param json The JSON object to output.
-     * @param file The file to create or to append to.
+     *
+     * @param json   The JSON object to output.
+     * @param file   The file to create or to append to.
      * @param append Whether to append the JSON contents to a file.
      * @throws IOException If the output failed.
      */
@@ -120,15 +113,16 @@ public class JsonIO {
         // Get raw JSON.
         byte[] rawJSON = json.toString().getBytes("UTF-8");
 
-        // Create output stream.
-        FileOutputStream fileOutputStream = new FileOutputStream(file, append);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file, append)) {
 
-        // Write the raw JSON.
-        fileOutputStream.write(rawJSON);
+            // Write the raw JSON to file.
+            fileOutputStream.write(rawJSON);
+        }
     }
 
     /**
      * Converts a JSON object to a UTF-8 encoded string.
+     *
      * @param json The JSON object to convert.
      * @return A UTF-8 encoded string.
      */
@@ -137,17 +131,13 @@ public class JsonIO {
         // Get raw JSON.
         byte[] rawJSON = json.toString().getBytes();
 
-        // Convert bytes to output stream.
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(rawJSON);
+        try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
 
-        // Convert output stream to string.
-        String jsonString = outputStream.toString("UTF-8");
+            outputStream.write(rawJSON);
 
-        // Close output stream.
-        outputStream.close();
-
-        return jsonString;
+            // Convert output stream to string.
+            return outputStream.toString("UTF-8");
+        }
     }
 
 }
