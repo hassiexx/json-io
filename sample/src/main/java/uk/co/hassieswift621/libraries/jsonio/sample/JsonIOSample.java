@@ -18,9 +18,9 @@ package uk.co.hassieswift621.libraries.jsonio.sample;
 
 import org.json.JSONObject;
 import uk.co.hassieswift621.libraries.jsonio.JsonIO;
+import uk.co.hassieswift621.libraries.jsonio.exceptions.JsonIOException;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Hassie on Monday, 07 May, 2018 - 12:07.
@@ -48,12 +48,12 @@ public class JsonIOSample {
 
         try {
             // Convert string to JSON object.
-            JSONObject jsonObject = JsonIO.toJSON(jsonString);
+            JSONObject jsonObject = JsonIO.toJson(jsonString);
 
             // Expected output: Ø©®Ą
             System.out.println("Example 1: " + jsonObject.getString("text"));
 
-        } catch (IOException e) {
+        } catch (JsonIOException e) {
             e.printStackTrace();
         }
     }
@@ -61,12 +61,12 @@ public class JsonIOSample {
     private static void example2() {
 
         try {
-            JSONObject jsonObject = JsonIO.toJSON(new File("sample_json.json"));
+            JSONObject jsonObject = JsonIO.toJson(new File("sample_json.json"));
 
             // Expected output: String with special chars: Ø©®Ą
             System.out.println("Example 2: " + jsonObject.getString("text"));
 
-        } catch (IOException e) {
+        } catch (JsonIOException e) {
             e.printStackTrace();
         }
 
@@ -76,13 +76,13 @@ public class JsonIOSample {
 
         try {
             // Create a JSON object.
-            JSONObject jsonObject = JsonIO.toJSON(new File("sample_json.json"));
+            JSONObject jsonObject = JsonIO.toJson(new File("sample_json.json"));
 
             // Output the json object.
             // Expected output: Same as the sample_json.json file.
             JsonIO.toFile(jsonObject, new File("output.json"));
 
-        } catch (IOException e) {
+        } catch (JsonIOException e) {
             e.printStackTrace();
         }
 
@@ -92,12 +92,12 @@ public class JsonIOSample {
 
         try {
             // Create a JSON object.
-            JSONObject jsonObject = JsonIO.toJSON(new File("sample_json.json"));
+            JSONObject jsonObject = JsonIO.toJson(new File("sample_json.json"));
 
             // Convert JSON object to string.
             System.out.println("Example 4: " + JsonIO.toString(jsonObject));
 
-        } catch (IOException e) {
+        } catch (JsonIOException e) {
             e.printStackTrace();
         }
     }

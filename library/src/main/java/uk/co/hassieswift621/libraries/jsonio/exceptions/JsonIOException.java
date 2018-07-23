@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-group = 'uk.co.hassieswift621.libraries.jsonio'
-version = '1.2.0'
+package uk.co.hassieswift621.libraries.jsonio.exceptions;
 
-apply plugin: 'java'
+/**
+ * Created by Hassie on Monday, 23 July, 2018 - 19:49
+ */
+public class JsonIOException extends RuntimeException {
 
-sourceCompatibility = 1.8
+    public JsonIOException(String message, Throwable cause) {
+        super("JSON IO Exception - " + message, cause);
+    }
 
-repositories {
-    jcenter()
-}
-
-dependencies {
-    implementation project(':library')
-    implementation 'org.json:json:20180130'
 }
