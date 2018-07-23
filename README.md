@@ -13,7 +13,7 @@ Simply supply the following command line parameter:```-Dfile.encoding=UTF8```
 
 Dependencies
 ------------
-The library is available on JCenter. The latest version is 1.1.0
+The library is available on JCenter. The latest version is 1.2.0
 
 Replace ```{LATEST_VERSION}``` with the latest version.
 
@@ -37,22 +37,29 @@ Tutorial
 **Converting an input stream to UTF-8 JSON**
 ```java
 try {
-  JSONObject json = JsonIO.toJSON(inputStream);
-} catch (IOException e) {}
+  JSONObject json = JsonIO.toJson(inputStream);
+} catch (JsonIOException e) {}
+```
+
+** Converting an input stream to UTF-8 JSON array**
+```java
+try {
+  JSONArray jsonArray = JsonIO.toJsonArray(inputStream);
+} catch (JsonIOException e) {}
 ```
 
 **Converting a file to UTF-8 JSON**
 ```java
 try {
-  JSONObject json = JsonIO.toJSON(new File("sample_json.json"));
-} catch (IOException e) {}
+  JSONObject json = JsonIO.toJson(new File("sample_json.json"));
+} catch (JsonIOException e) {}
 ```
 
 **Converting a string to UTF-8 JSON**
 ```java
 try {
-  JSONObject json = JsonIO.toJSON("{"text": "Some text"}");
-} catch (IOException e) {}
+  JSONObject json = JsonIO.toJson("{"text": "Some text"}");
+} catch (JsonIOException e) {}
 ```
 
 **Converting JSON to file**
@@ -60,7 +67,7 @@ try {
 JSONObject json = some JSON;
 try {
   JsonIO.toFile(json, new File("output.json"));
-} catch (IOException e) {}
+} catch (JsonIOException e) {}
 ```
 
 **Converting JSON to file (append to a file)**
@@ -69,7 +76,7 @@ JSONObject json = some JSON;
 try {
   JsonIO.toFile(json, new File("output.json"), true);
 }
-catch (IOException e) {}
+catch (JsonIOException e) {}
 ```
 
 **Converting JSON to a UTF-8 string**
@@ -77,7 +84,7 @@ catch (IOException e) {}
 JSONObject json = some JSON;
 try {
   String jsonString = JsonIO.toString(json);
-} catch (IOException e) {}
+} catch (JsonIOException e) {}
 ```
 
 License
